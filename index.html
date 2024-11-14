@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)file:///C:/Users/Hadley%20Pimentel/Desktop/BINGO/bingo2.html -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=a1.0">
+    <title>Bingo</title>
+
+<style>
+	  <style>
+    /* Estilos para o vídeo de fundo */
+    body, html {
+      height: 100%;
+      margin: 0;
+      overflow: hidden; /* Impede rolagem da página */
+    }
+
+    #video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Faz o vídeo cobrir toda a tela */
+      z-index: -1; /* Coloca o vídeo atrás do conteúdo */
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      position: relative;
+      z-index: 1; /* Garante que a tabela fique acima do vídeo */
+    }
+
+    td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    td:focus {
+      outline: none;
+    }
+	
+        body {
+            font-family: Arial Black, sans-serif;
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+			user-select: none
+			
+			}
+        #bingoContainer {
+            display: flex;
+            justify-content: space-between;
+            width: 58%;
+			user-select: none
+        }
+        #bingoGrid {
+            display: grid;
+            grid-template-columns: repeat(5, 100px);
+            grid-template-rows: repeat(16, 35px);
+            gap: 26px;
+			user-select: none
+        }
+        .bingo-cell {
+            width: 100px;
+            height: 52px;
+            background-color: white;
+            border: 1px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 55px;
+            cursor: pointer;
+			user-select: none;
+        }
+        .header-cell {
+            background-color: white;
+			font-weight: bold;
+            font-size: 100px; color: blue;
+			display: flex;
+            justify-content: center;
+            align-items: center;
+			user-select: none
+        }
+        .selected {
+            background-color: Khaki;
+        }
+        #display {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 251px;
+            width: 480px;
+            border: 2px solid black; /* Moldura do display */
+            padding: 0px;
+            background-color: white;
+			user-select: none;
+        }
+        #display #letra, #display #numero {
+            font-size: 192px;
+            font-weight: bold;
+			user-select: none
+        }
+        #display #letra, #display #numero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            cursor: pointer;
+			user-select: none;
+        }
+        #cardImage {
+            margin-top: 100px
+			user-select: none;
+        }
+        #cardImage img {
+            width: 100%;
+            height: auto;
+			user-select: none
+        }
+				#cardImage {
+            margin-top: 0px;
+			user-select: none
+        }
+    </style></head>
+    
+
+<body>
+    <div id="bingoContainer">
+        <div id="bingoGrid">
+            <!-- Letras BINGO -->
+            <div class="header-cell">B</div>
+            <div class="header-cell">I</div>
+            <div class="header-cell">N</div>
+            <div class="header-cell">G</div>
+            <div class="header-cell">O</div>
+
+            <!-- Números de 1 a 75 -->
+            <!-- (Preencha as células conforme o exemplo fornecido) -->
+            <div class="bingo-cell" data-letra="B" data-numero="01">01</div>
+<div class="bingo-cell" data-letra="I" data-numero="16">16</div>
+<div class="bingo-cell" data-letra="N" data-numero="31">31</div>
+<div class="bingo-cell" data-letra="G" data-numero="46">46</div>
+<div class="bingo-cell" data-letra="O" data-numero="61">61</div>
+
+<div class="bingo-cell" data-letra="B" data-numero="02">02</div>
+<div class="bingo-cell" data-letra="I" data-numero="17">17</div>
+<div class="bingo-cell" data-letra="N" data-numero="32">32</div>
+<div class="bingo-cell" data-letra="G" data-numero="47">47</div>
+<div class="bingo-cell" data-letra="O" data-numero="62">62</div>
+
+<div class="bingo-cell" data-letra="B" data-numero="03">03</div>
+<div class="bingo-cell" data-letra="I" data-numero="18">18</div>
+<div class="bingo-cell" data-letra="N" data-numero="33">33</div>
+<div class="bingo-cell" data-letra="G" data-numero="48">48</div>
+<div class="bingo-cell" data-letra="O" data-numero="63">63</div>
+
+<div class="bingo-cell" data-letra="B" data-numero="04">04</div>
+<div class="bingo-cell" data-letra="I" data-numero="19">19</div>
+<div class="bingo-cell" data-letra="N" data-numero="34">34</div>
+<div class="bingo-cell" data-letra="G" data-numero="49">49</div>
+<div class="bingo-cell" data-letra="O" data-numero="64">64</div>
+
+<div class="bingo-cell" data-letra="B" data-numero="05">05</div>
+<div class="bingo-cell" data-letra="I" data-numero="20">20</div>
+<div class="bingo-cell" data-letra="N" data-numero="35">35</div>
+<div class="bingo-cell" data-letra="G" data-numero="50">50</div>
+<div class="bingo-cell" data-letra="O" data-numero="65">65</div>
+
+<div class="bingo-cell" data-letra="B" data-numero="06">06</div>
+<div class="bingo-cell" data-letra="I" data-numero="21">21</div>
+<div class="bingo-cell" data-letra="N" data-numero="36">36</div>
+<div class="bingo-cell" data-letra="G" data-numero="51">51</div>
+<div class="bingo-cell" data-letra="O" data-numero="66">66</div>
+
+<div class="bingo-cell" data-letra="B" data-numero="07">07</div>
+<div class="bingo-cell" data-letra="I" data-numero="22">22</div>
+<div class="bingo-cell" data-letra="N" data-numero="37">37</div>
+<div class="bingo-cell" data-letra="G" data-numero="52">52</div>
+<div class="bingo-cell" data-letra="O" data-numero="67">67</div>
+
+<div class="bingo-cell" data-letra="B" data-numero="08">08</div>
+<div class="bingo-cell" data-letra="I" data-numero="23">23</div>
+<div class="bingo-cell" data-letra="N" data-numero="38">38</div>
+<div class="bingo-cell" data-letra="G" data-numero="53">53</div>
+<div class="bingo-cell" data-letra="O" data-numero="68">68</div>
+
+<div class="bingo-cell" data-letra="B" data-numero="09">09</div>
+<div class="bingo-cell" data-letra="I" data-numero="24">24</div>
+<div class="bingo-cell" data-letra="N" data-numero="39">39</div>
+<div class="bingo-cell" data-letra="G" data-numero="54">54</div>
+<div class="bingo-cell" data-letra="O" data-numero="69">69</div>
+
+<div class="bingo-cell" data-letra="B" data-numero="10">10</div>
+<div class="bingo-cell" data-letra="I" data-numero="25">25</div>
+<div class="bingo-cell" data-letra="N" data-numero="40">40</div>
+<div class="bingo-cell" data-letra="G" data-numero="55">55</div>
+<div class="bingo-cell" data-letra="O" data-numero="70">70</div>
+
+<div class="bingo-cell" data-letra="B" data-numero="11">11</div>
+<div class="bingo-cell" data-letra="I" data-numero="26">26</div>
+<div class="bingo-cell" data-letra="N" data-numero="41">41</div>
+<div class="bingo-cell" data-letra="G" data-numero="56">56</div>
+<div class="bingo-cell" data-letra="O" data-numero="71">71</div>
+
+<div class="bingo-cell" data-letra="B" data-numero="12">12</div>
+<div class="bingo-cell" data-letra="I" data-numero="27">27</div>
+<div class="bingo-cell" data-letra="N" data-numero="42">42</div>
+<div class="bingo-cell" data-letra="G" data-numero="57">57</div>
+<div class="bingo-cell" data-letra="O" data-numero="72">72</div>
+
+<div class="bingo-cell" data-letra="B" data-numero="13">13</div>
+<div class="bingo-cell" data-letra="I" data-numero="28">28</div>
+<div class="bingo-cell" data-letra="N" data-numero="43">43</div>
+<div class="bingo-cell" data-letra="G" data-numero="58">58</div>
+<div class="bingo-cell" data-letra="O" data-numero="73">73</div>
+
+<div class="bingo-cell" data-letra="B" data-numero="14">14</div>
+<div class="bingo-cell" data-letra="I" data-numero="29">29</div>
+<div class="bingo-cell" data-letra="N" data-numero="44">44</div>
+<div class="bingo-cell" data-letra="G" data-numero="59">59</div>
+<div class="bingo-cell" data-letra="O" data-numero="74">74</div>
+
+<div class="bingo-cell" data-letra="B" data-numero="15">15</div>
+<div class="bingo-cell" data-letra="I" data-numero="30">30</div>
+<div class="bingo-cell" data-letra="N" data-numero="45">45</div>
+<div class="bingo-cell" data-letra="G" data-numero="60">60</div>
+<div class="bingo-cell" data-letra="O" data-numero="75">75</div>
+            
+            <!-- Continue adicionando os números aqui -->
+        </div>
+<video id="video-background" autoplay="" loop="" muted="">
+    <source src="./Bingo_files/seu-video.mp4" type="video/mp4">
+    Seu navegador não suporta o vídeo.
+  </video>       
+
+	   <div id="display">
+            <div id="letra"> </div>
+            <div id="numero"> </div>
+									<div id="cardImage">
+    <img src="./Bingo_files/patrocinador (1).jpg" alt="Cartão de Visitas">
+</div>
+
+    <script>
+	
+        let historico = [];
+        let ultimaAcao = null;
+
+        document.querySelectorAll('.bingo-cell').forEach(cell => {
+            cell.addEventListener('click', function() {
+                let letra = this.getAttribute('data-letra');
+                let numero = this.getAttribute('data-numero');
+
+                document.getElementById('letra').innerText = letra;
+                document.getElementById('numero').innerText = numero;
+
+                this.classList.add('selected');
+
+                ultimaAcao = {cell: this, letra: letra, numero: numero};
+                historico.push(ultimaAcao);
+            });
+        });
+
+        // Função para limpar tudo (reset)
+        function resetGame() {
+            document.getElementById('letra').innerText = " ";
+            document.getElementById('numero').innerText = " ";
+            document.querySelectorAll('.bingo-cell').forEach(cell => {
+                cell.classList.remove('selected');
+            });
+            historico = [];
+            ultimaAcao = null;
+        }
+
+        // Função para desfazer a última ação
+        function undo() {
+            if (ultimaAcao) {
+                ultimaAcao.cell.classList.remove('selected');
+                historico.pop();
+                if (historico.length > 0) {
+                    let penultimaAcao = historico[historico.length - 1];
+                    document.getElementById('letra').innerText = penultimaAcao.letra;
+                    document.getElementById('numero').innerText = penultimaAcao.numero;
+                    ultimaAcao = penultimaAcao;
+                } else {
+                    document.getElementById('letra').innerText = " ";
+                    document.getElementById('numero').innerText = " ";
+                    ultimaAcao = null;
+                }
+            }
+        }
+
+        // Evento para resetar quando clicar na letra
+        document.getElementById('letra').addEventListener('click', function() {
+            resetGame();
+        });
+
+        // Evento para desfazer a última ação quando clicar no número
+        document.getElementById('numero').addEventListener('click', function() {
+            undo();
+        });
+		
+    </script>
+
+
+</div></div></body></html>
