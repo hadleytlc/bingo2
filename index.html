@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Telão Bingo</title>
-  <style>
+   <style>
     * {
       box-sizing: border-box;
     }
@@ -99,7 +99,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-	  cursor: pointer;
+	  user-select: none;
+      cursor: pointer;
       align-items: center;
       height: 95.5vh;
     }
@@ -111,7 +112,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-	  cursor: pointer;
+	  user-select: none;
+      cursor: pointer;
       background: white;
       border-radius: 10px;
     }
@@ -122,7 +124,8 @@
       align-items: center;
       justify-content: flex-start;
       font-family: Arial, sans-serif;
-	  cursor: pointer;
+	  user-select: none;
+      cursor: pointer;
       height: 100%;
       padding-top: 0vh;
       gap: 0vh;
@@ -132,7 +135,8 @@
   font-size: 8vw;
   font-weight: bold;
   font-family: Arial, sans-serif;
-  cursor: pointer;
+  user-select: none;
+      cursor: pointer;
   margin: 0;
   padding: 0;
   line-height: 1;
@@ -141,7 +145,8 @@
 .last-num {
   font-size: 14vw;
   font-family: Arial Black, sans-serif;
-  cursor: pointer;
+  user-select: none;
+      cursor: pointer;
   margin: 0;
   padding: 0;
   line-height: 1;
@@ -155,7 +160,8 @@
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
-	  cursor: pointer;
+	  user-select: none;
+      cursor: pointer;
       border-radius: 10px;
     }
 
@@ -293,6 +299,24 @@
 
     document.getElementById("image-box").style.backgroundImage =
       "url('https://scontent.fqcj1-1.fna.fbcdn.net/v/t39.30808-6/486875059_1484501252920169_7451231506583867369_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeFYlOl5qO625NjrOcI6hUBUCZ9rL9y-HW8Jn2sv3L4db0a_wL8-VUIXW9mI9Me--HTn6YPRPRpPM1NZkYeLnCbt&_nc_ohc=Ah3Ypnl3J7EQ7kNvwGCZzDy&_nc_oc=AdljsvWee4skJm8TSziNxrPbbAOMFR_3qvZVftuclygndYYI2GYihaiLNEoz9ebJzwo&_nc_zt=23&_nc_ht=scontent.fqcj1-1.fna&_nc_gid=F-nE2OzEO_MzRt3O3l4_eA&oh=00_AfNa7_93tj8M_g4U4z8s7LqyrUPPXTh2UXXaSD6pRlVeMQ&oe=684F7F89')"; // substitua com o nome da sua imagem local
+ let typedNumber = "";
+
+document.addEventListener("keydown", (e) => {
+  if (/^[0-9]$/.test(e.key)) {
+    typedNumber += e.key;
+  } else if (e.key === "Enter") {
+    const num = parseInt(typedNumber);
+    if (!isNaN(num) && num >= 1 && num <= 75) {
+      const allCells = document.querySelectorAll(".bingo-column div");
+      const match = Array.from(allCells).find(el => parseInt(el.textContent) === num);
+      if (match) {
+        match.click();
+      }
+    }
+    // Sempre limpa a entrada ao apertar Enter
+    typedNumber = "";
+  }
+});
   </script>
 </body>
 </html>
