@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <title>Telão Bingo</title>
-   <style>
+  <style>
     * {
       box-sizing: border-box;
     }
@@ -22,7 +23,9 @@
       width: 100vw;
       display: flex;
       justify-content: center;
-	  cursor: pointer;
+	  color: blue;
+      user-select: none;
+      cursor: pointer;
       align-items: center;
     }
 
@@ -30,19 +33,21 @@
       display: flex;
       height: 90vh;
       align-items: center;
-	  cursor: pointer;
-      gap: 3vw;
+	  user-select: none;
+      cursor: pointer;
+      gap: 5vw;
     }
 
     .bingo-panel {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 2vw;
+      gap: 3vw;
       padding: 1vh;
       border: 6px solid #333;
       border-radius: 10px;
-	  cursor: pointer;
+      user-select: none;
+      cursor: pointer;
 	  
     }
 
@@ -64,12 +69,12 @@
 
     .bingo-column div {
       width: 5vw;
-      height: 7vw;
+      height: 5vw;
       height: calc(90vh / 16 - 0.5vh);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2vw;
+      font-size: 2.5vw;
       font-family: 'Arial Black', Arial, sans-serif;
       color: #aaa;
       background-color: white;
@@ -98,21 +103,22 @@
     .info-panel {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-	  user-select: none;
+      justify-content: space-between ;
+      user-select: none;
       cursor: pointer;
       align-items: center;
-      height: 95.5vh;
+      height: 93.5vh;
+	  
     }
 
     .info-box {
-      width: 35vw;
+      width: 40vw;
       height: 45.5vh;
       border: 6px solid #333;
       display: flex;
       align-items: center;
       justify-content: center;
-	  user-select: none;
+      user-select: none;
       cursor: pointer;
       background: white;
       border-radius: 10px;
@@ -124,7 +130,8 @@
       align-items: center;
       justify-content: flex-start;
       font-family: Arial, sans-serif;
-	  user-select: none;
+	  color: black;
+      user-select: none;
       cursor: pointer;
       height: 100%;
       padding-top: 0vh;
@@ -136,20 +143,20 @@
   font-weight: bold;
   font-family: Arial, sans-serif;
   user-select: none;
-      cursor: pointer;
+  cursor: pointer;
   margin: 0;
   padding: 0;
-  line-height: 1;
+  line-height: 84%;
 }
 
 .last-num {
-  font-size: 14vw;
+  font-size: 20vw;
   font-family: Arial Black, sans-serif;
   user-select: none;
-      cursor: pointer;
+  cursor: pointer;
   margin: 0;
   padding: 0;
-  line-height: 1;
+  line-height: 67%;
 }
 
 
@@ -157,20 +164,22 @@
       width: 100%;
       height: 100%;
       position: relative;
-      background-size: contain;
+      background-size: 100% 100%;
       background-repeat: no-repeat;
       background-position: center;
-	  user-select: none;
+      user-select: none;
       cursor: pointer;
-      border-radius: 10px;
+      border-radius: 1px;
+	  
     }
 
     .image-buttons {
       position: absolute;
-      bottom: 45.8vh;
+      bottom: 101%;
       left: 50%;
       transform: translateX(-50%);
-	  cursor: pointer;
+      user-select: none;
+      cursor: pointer;
       display: flex;
       gap: 1vw;
     }
@@ -181,13 +190,15 @@
       background: #eee;
       border: 1px solid #aaa;
       border-radius: 4px;
+      user-select: none;
       cursor: pointer;
       transition: background 0.2s;
     }
 
     .image-buttons button:hover {
       background: #ddd;
-	  cursor: pointer;
+      user-select: none;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -222,7 +233,7 @@
 
   <script>
     const columns = {
-      B: [1, 15],
+      B: [01, 15],
       I: [16, 30],
       N: [31, 45],
       G: [46, 60],
@@ -277,7 +288,7 @@
         if (prev) {
           prev.classList.remove("history");
           prev.classList.add("active");
-          prev.style.color = "#000";
+          prev.style.color = "blue";
           lastLetter.textContent = prev.dataset.letter;
           lastNum.textContent = prev.dataset.value;
         } else {
@@ -298,8 +309,8 @@
     });
 
     document.getElementById("image-box").style.backgroundImage =
-      "url('https://scontent.fqcj1-1.fna.fbcdn.net/v/t39.30808-6/486875059_1484501252920169_7451231506583867369_n.jpg?stp=dst-jpg_s960x960_tt6&_nc_cat=105&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeFYlOl5qO625NjrOcI6hUBUCZ9rL9y-HW8Jn2sv3L4db0a_wL8-VUIXW9mI9Me--HTn6YPRPRpPM1NZkYeLnCbt&_nc_ohc=Ah3Ypnl3J7EQ7kNvwGCZzDy&_nc_oc=AdljsvWee4skJm8TSziNxrPbbAOMFR_3qvZVftuclygndYYI2GYihaiLNEoz9ebJzwo&_nc_zt=23&_nc_ht=scontent.fqcj1-1.fna&_nc_gid=F-nE2OzEO_MzRt3O3l4_eA&oh=00_AfNa7_93tj8M_g4U4z8s7LqyrUPPXTh2UXXaSD6pRlVeMQ&oe=684F7F89')"; // substitua com o nome da sua imagem local
- let typedNumber = "";
+      "url('cartão de visita..jpg')"; // substitua com o nome da sua imagem local
+	  	  let typedNumber = "";
 
 document.addEventListener("keydown", (e) => {
   if (/^[0-9]$/.test(e.key)) {
@@ -316,7 +327,7 @@ document.addEventListener("keydown", (e) => {
     // Sempre limpa a entrada ao apertar Enter
     typedNumber = "";
   }
-});
+	});
   </script>
 </body>
 </html>
